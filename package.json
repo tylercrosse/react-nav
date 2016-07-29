@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "react-scroll": "^1.0.24"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",
@@ -21,6 +22,7 @@
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.22.0",
+    "node-bourbon": "^4.2.8",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",

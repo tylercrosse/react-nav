@@ -1,3 +1,5 @@
+var bourbon = require('node-bourbon').includePaths;
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + "/src/index.html",
@@ -22,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        loaders: ["style", "css", "sass?includePaths[]=" + bourbon]
       }
     ]
   },
