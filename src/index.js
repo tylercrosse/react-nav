@@ -27,43 +27,44 @@ class Section extends React.Component{
   render() {
     return (
       <div>
-  
-        <nav>
+        <nav className="vertical-nav">
           <ul>
-            <li><Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} >Test 1</Link></li>
-            <li><Link activeClass="active" className="test2" to="test2" spy={true} smooth={true} duration={500}>Test 2</Link></li>
-            <li><Link activeClass="active" className="test3" to="test3" spy={true} smooth={true} duration={500} >Test 3</Link></li>
-            <li><Link activeClass="active" className="test4" to="test4" spy={true} smooth={true} duration={500}>Test 4</Link></li>
-            <li><Link activeClass="active" className="test5" to="test5" spy={true} smooth={true} duration={500} delay={1000}>Test 5 ( delay )</Link></li>
-            <li><DirectLink className="test6" to="anchor" spy={true} smooth={true} duration={500}>Test 6 (anchor)</DirectLink></li>
-            <li><Link activeClass="active" className="test7" to="test7" spy={true} smooth={true} duration={durationFn}>Test 7 (duration and container)</Link></li>
-            <li> <a onClick={() => scroll.scrollTo(100)}>Scroll To 100!</a></li>
-            <li> <a onClick={() => scroll.scrollToBottom()}>Scroll To Bottom</a></li>
-            <li> <a onClick={() => scroll.scrollMore(500)}>Scroll 500 More!</a></li>
-            <li> <a onClick={() => scroll.scrollMore(1000, { delay : 1500 })}>Scroll 1000 More! ( delay ) </a></li>
+            <li>
+              <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} ></Link>
+              <span className="dot"></span>
+              <span className="label">Intro</span>
+            </li>
+            <li>
+              <Link activeClass="active" className="test2" to="test2" spy={true} smooth={true} duration={500}></Link>
+              <span className="dot"></span>
+              <span className="label">Intro</span>
+            </li>
+            <li>
+              <Link activeClass="active" className="test3" to="test3" spy={true} smooth={true} duration={500} ></Link>
+              <span className="dot"></span>
+              <span className="label">Intro</span>
+            </li>
+            <li>
+              <Link activeClass="active" className="test4" to="test4" spy={true} smooth={true} duration={500}></Link>
+              <span className="dot"></span>
+              <span className="label">Intro</span>
+            </li>
           </ul>
         </nav>
-        
-        <Element name="test1" className="element" >
-          test 1
-        </Element>
+        <a className="nav-trigger img-replace">Open navigation<span></span></a>
 
-        <Element name="test2" className="element">
-          test 2
+        <Element name="test1" className="section" >
+          <p>test 1</p>
         </Element>
-
-        <Element name="test3" className="element">
-          test 3
+        <Element name="test2" className="section">
+          <p>test 2</p>
         </Element>
-
-        <Element name="test4" className="element">
-          test 4
+        <Element name="test3" className="section">
+          <p>test 3</p>
         </Element>
-
-        <Element name="test5" className="element">
-          test 5
+        <Element name="test4" className="section">
+          <p>test 4</p>
         </Element>
-
       </div>
     )
   }
