@@ -25,10 +25,19 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass?includePaths[]=" + bourbon]
+      },
+      {
+        test: /\.modernizrrc$/,
+        loader: "modernizr"
       }
     ]
   },
   plugins: [
     HtmlWebpackPluginConfig
-  ]
+  ],
+  resolve: {
+    alias: {
+      modernizr$: "../.modernizrrc"
+    }
+  }
 }

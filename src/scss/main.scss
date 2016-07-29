@@ -65,6 +65,14 @@ li {
   padding: 0;
 }
 
+.img-replace { /* replace text with a background-image */
+	display: inline-block;
+	overflow: hidden;
+	text-indent: 100%;
+	white-space: nowrap;
+}
+
+
 .section {
   min-height: 100vh;
   position: relative;
@@ -123,7 +131,7 @@ li {
   display: none;
 }
 
-.no-touch .vertical-nav {
+.no-touchevents .vertical-nav {
   position: fixed;
   right: 40px;
   @include center(y); // see partials > _mixins.scss
@@ -190,7 +198,7 @@ li {
 
 /* Touch devices */
 
-.touch .nav-trigger {
+.touchevents .nav-trigger {
   display: block;
   z-index: 2;
   position: fixed;
@@ -229,7 +237,7 @@ li {
   }
 }
 
-.touch .vertical-nav {
+.touchevents .vertical-nav {
   position: fixed;
   z-index: 1;
   right: 5%;
@@ -296,7 +304,7 @@ li {
 }
 
 @include MQ(M) {
-  .touch .nav-trigger, .touch .vertical-nav {
+  .touchevents .nav-trigger, .touchevents .vertical-nav {
     bottom: 40px;
   }
 }
