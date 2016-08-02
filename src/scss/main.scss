@@ -10,15 +10,15 @@
 
 // colors
 
-$color-1: #3e3947; // dark purple
-$color-2: #745360; // light purple
-$color-3: #d88683; // pink
-$color-4: #fff; // white
+// $color-1: #3e3947; // dark purple
+// $color-2: #745360; // light purple
+// $color-3: #d88683; // pink
+// $color-4: #fff; // white
 
-// $color-1: #3a2c41; // Blackcurrant
-// $color-2: #eaf2e3; // Willow Brook
-// $color-3: #000000; // Black
-// $color-4: #c0a672; // Gimblet
+$color-1: #00237e; 
+$color-2: #0040ff; 
+$color-3: #6f8fff; 
+$color-4: #fff;
 
 // fonts 
 
@@ -171,40 +171,8 @@ ul, li {
 }
 
 .vertical-nav {
-  position: fixed;
-  z-index: 1;
-  right: 24px;
-  top: 24px;
-  width: 90%;
-  max-width: 400px;
-  max-height: 90%;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-  @include transform-origin(right top);
-  @include transform(scale(0));
-  @include transition-property(transform);
-  @include transition-duration(.2s);
-  @include border-radius;
-  background-color: rgba($color-4, .9);
-
-  a {
-    display: block;
-    padding: 1em;
-    border-bottom: 1px solid rgba($color-1, .1);
-
-    span:first-child {
-      display: none;
-    }
-
-    &.active span:last-child {
-      color: $color-3;
-    }
-  }
+  cursor: pointer;
   
-  &.open {
-    @include transform(scale(1));
-  }
-
   &.open + .nav-trigger {
     background-color: transparent;
     
@@ -236,28 +204,24 @@ ul, li {
   }
 }
 
-@include MQ(M) {
-  .touchevents .nav-trigger, .touchevents .vertical-nav {
-    bottom: 40px;
-  }
-}
-
-@include MQ(M) {
-  // .nav-trigger {
-  //   display: none;
-  // }  
-  
+@media only screen and (min-width: $M) {
   .no-touchevents .vertical-nav {
     height: 100%;
     max-height: 100%;
     position: fixed;
-    right: 40px;
+    right: 0;
     @include center(y); // see partials > _mixins.scss
     z-index: 1;
     background-color: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+    ul {
+      width: 200px;
+      position: relative;
+      right: 40px;
+    }
   
     li {
       text-align: right;
@@ -276,10 +240,6 @@ ul, li {
         float: right;
         display: inline-block;
         @include transform(scale(.6));
-        
-        // &.active span:last-child {
-        //   color: red;
-        // }
       }
   
       &:hover span {
@@ -310,7 +270,7 @@ ul, li {
       -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
       -moz-transition: -moz-transform 0.2s, background-color 0.5s;
       transition: transform 0.2s, background-color 0.5s;
-      @include transform-origin(50% 50%);	
+      @include transform-origin(50% 50%);
     }
   
     .label {
@@ -328,10 +288,88 @@ ul, li {
     }
     
     &.open {
-      background-color: blue;
+      right: 0;
+      background-color: $color-4;
+      border-radius: 0;
       -webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
       -moz-transition: -moz-transform 0.2s, background-color 0.5s;
       transition: transform 0.2s, padding 0.2s, background-color 0.5s;
+      font-size: 100%;
+      
+      li {
+        transition: transform 0.2s, padding 0.2s, background-color 0.5s;
+        padding: 1em 0;
+      }
+      
+      a {
+        &:hover span {
+          @include transform(scale(1.4)); 
+        }
+      }
+      
+      .dot {
+        background-color: $color-1;
+      }
+      
+      span {
+        opacity: 1;
+        color: $color-1;
+        @include transform(scale(1));
+      }
+    
+      .active .dot {
+        background-color: $color-3;
+      }
+      
+      .active span {
+        color: $color-3;
+      }
     }
   }  
+}
+
+@media only screen and (max-width: $M) {
+  .vertical-nav {
+    position: fixed;
+    z-index: 1;
+    right: 24px;
+    top: 24px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 90%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    @include transform-origin(right top);
+    @include transform(scale(0));
+    @include transition-property(transform);
+    @include transition-duration(.2s);
+    @include border-radius;
+    background-color: rgba($color-4, .9);
+
+    a {
+      display: block;
+      padding: 1em;
+      border-bottom: 1px solid rgba($color-1, .1);
+
+      span:first-child {
+        display: none;
+      }
+
+      &.active span:last-child {
+        color: $color-3;
+      }
+    }
+    
+    &.open {
+      @include transform(scale(1));
+    }
+
+    
+  }
+} 
+
+@include MQ(M) {
+  .touchevents .nav-trigger, .touchevents .vertical-nav {
+    bottom: 40px;
+  }
 }
